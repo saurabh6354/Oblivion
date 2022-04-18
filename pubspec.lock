@@ -69,6 +69,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.1"
+  flutter_lints:
+    dependency: "direct dev"
+    description:
+      name: flutter_lints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
+  funvas:
+    dependency: "direct dev"
+    description:
+      name: funvas
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.6+6"
   google_fonts:
     dependency: "direct dev"
     description:
@@ -90,6 +104,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
+  lints:
+    dependency: transitive
+    description:
+      name: lints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   material_color_utilities:
     dependency: transitive
     description:

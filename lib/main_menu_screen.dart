@@ -5,9 +5,9 @@ import 'package:dark_fall2/app_background.dart';
 import 'main_menu_button.dart';
 import 'package:dark_fall2/dark_fall.dart';
 import 'package:dark_fall2/filled_button.dart';
-import 'package:dark_fall2/filled_button.dart';
 import 'package:dark_fall2/gradient_icon.dart';
 import 'package:dark_fall2/physics_visualize.dart';
+import 'animation.dart';
 
 class MainMenuScreen extends StatefulWidget {
   const MainMenuScreen({Key? key, String, String? title}) : super(key: key);
@@ -40,7 +40,7 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
   Widget build(BuildContext context) {
     return AppBackground(
       Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black,
         body: Padding(
           padding: const EdgeInsets.only(
             left: 12.0,
@@ -54,11 +54,18 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
               ),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Image.asset("assets/images/app_logo.png"),
+                  padding:
+                      const EdgeInsets.only(left: 40, right: 40, bottom: 150),
+                  child: Image.asset(
+                    "assets/images/app_logo.png",
+                    alignment: Alignment.topCenter,
+                    // fit: BoxFit.fitWidth,
+                    //           height: MediaQuery.of(context).size.height * 0.3,
+                    // width: MediaQuery.of(context).size.width * 03
+                  ),
                 ),
                 Expanded(
                   child: AnimatedSwitcher(
@@ -85,7 +92,7 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
                   child: Container(
                     key: Key(transitionCount.toString()),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(0.0),
                       child: visibleBottomIcons,
                     ),
                   ),
@@ -102,13 +109,30 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        menuTitle('Choose a game:'),
+        menuTitle(
+          'Choose a game:',
+        ),
+        SizedBox(
+          height: 50,
+        ),
         MainMenuButton(
           Key('Memory Game'),
           'Memory Game',
           () => Navigator.of(context).push(
             MaterialPageRoute(builder: (_) {
               return LightsOutGame();
+            }),
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        MainMenuButton(
+          Key('Animation'),
+          'Random Animation ',
+          () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) {
+              return animation();
             }),
           ),
         ),
@@ -140,9 +164,10 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
   Widget menuTitle(String text) {
     return Text(
       text.toUpperCase(),
-      style: GoogleFonts.openSans(
+      style: GoogleFonts.cinzel(
         textStyle: TextStyle(
           color: MainTheme.lightTextColor,
+          fontSize: 30,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -294,7 +319,7 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
                     Padding(
                       padding: const EdgeInsets.all(24.0),
                       child: Image.asset(
-                        "assets/images/cross_platform_logo.png",
+                        "assets/images/app_logo.png",
                       ),
                     ),
                     Text(

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:dark_fall2/themes.dart';
+import 'package:dark_fall2/main_menu_button.dart';
 
 class LightsOutGame extends StatefulWidget {
   LightsOutGame({Key? key}) : super(key: key);
@@ -19,7 +22,7 @@ class _LightsOutGame extends State<LightsOutGame> {
   @override
   void initState() {
     super.initState();
-    _randomizeBoard();
+    randomizeBoard();
   }
 
   // Purely random board generation is not valid as the board will not
@@ -41,7 +44,7 @@ class _LightsOutGame extends State<LightsOutGame> {
     return gridValues;
   }
 
-  void _randomizeBoard() {
+  void randomizeBoard() {
     setState(() {
       gridValues = randomGridValues(gridSize, numValues);
     });
@@ -89,7 +92,8 @@ class _LightsOutGame extends State<LightsOutGame> {
                       child: Text("OK"),
                       onPressed: () {
                         // print('pressed newgame button');
-                        _randomizeBoard();
+                        SystemSound.play(SystemSoundType.alert);
+                        randomizeBoard();
                         Navigator.of(context).pop(); // Dismiss the button.
                       },
                     ),
@@ -168,15 +172,53 @@ class _LightsOutGame extends State<LightsOutGame> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            verticalDirection: VerticalDirection.down,
-            children: this.gridValues.asMap().entries.map<Row>((rowEntry) {
-              int rowIndex = rowEntry.key;
-              List<int> rowValues = rowEntry.value;
-              return buildRow(rowValues, rowIndex);
-            }).toList()));
+    return new Container(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        verticalDirection: VerticalDirection.down,
+        children: this.gridValues.asMap().entries.map<Row>((rowEntry) {
+          int rowIndex = rowEntry.key;
+          List<int> rowValues = rowEntry.value;
+          return buildRow(rowValues, rowIndex);
+        }).toList(),
+      ),
+    );
   }
 }
+// class button extends StatefulWidget {
+//   const button({Key? key}) : super(key: key);
+//
+//   @override
+//   State<button> createState() => _buttonState();
+// }
+//
+// // class _buttonState extends State<button> {
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return GestureDetector(
+// //       onTap:  randomizeBoard();
+// //       child: Container(
+// //         height: 75,
+// //         decoration: BoxDecoration(
+// //           gradient: MainTheme.mainButtonGradient,
+// //           borderRadius: BorderRadius.all(
+// //             Radius.circular(10),
+// //           ),
+// //         ),
+// //         child: Center(
+// //           child: Text(
+// //             widget.text,
+// //             style: GoogleFonts.cinzel(
+// //               textStyle: TextStyle(
+// //                 color: MainTheme.lightTextColor,
+// //                 fontSize: 24,
+// //               ),
+// //             ),
+// //           ),
+// //         ),
+// //       ),
+// //     );
+// //   }
+// // }
+// //
