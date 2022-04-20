@@ -8,6 +8,7 @@ import 'package:dark_fall2/filled_button.dart';
 import 'package:dark_fall2/gradient_icon.dart';
 import 'package:dark_fall2/physics_visualize.dart';
 import 'animation.dart';
+import 'info.dart';
 
 class MainMenuScreen extends StatefulWidget {
   const MainMenuScreen({Key? key, String, String? title}) : super(key: key);
@@ -120,7 +121,7 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
           'Memory Game',
           () => Navigator.of(context).push(
             MaterialPageRoute(builder: (_) {
-              return LightsOutGame();
+              return information();
             }),
           ),
         ),
