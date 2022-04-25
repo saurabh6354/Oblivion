@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:dark_fall2/themes.dart';
 import 'package:dark_fall2/app_background.dart';
+import 'info2.dart';
 import 'main_menu_button.dart';
 import 'package:dark_fall2/dark_fall.dart';
 import 'package:dark_fall2/filled_button.dart';
@@ -145,7 +146,7 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
           'Physics Visualize',
           () => Navigator.of(context).push(
             MaterialPageRoute(builder: (_) {
-              return physicsvisualize();
+              return information2();
             }),
           ),
           /* MainMenuButton(
@@ -315,6 +316,7 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
             builder: (BuildContext context) => _buildPopUp(
               'About Us',
               Container(
+                color: Colors.black,
                 child: Column(
                   children: [
                     Padding(
@@ -325,8 +327,8 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
                     ),
                     Text(
                       'We’ve been striving to create a platform where students can practise their skills and grow them as a a whole  '
-                      //'\n\nNoah’s Ark is one of our learning tools. '
-                      '\n\nIf you would like to help us in our mission, click the link below.',
+                      //'\n\n '
+                      '\n\nIf you have any suggestion or issues please mail me - saurabh.emwa@gmail.com.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
