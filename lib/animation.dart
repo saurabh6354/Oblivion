@@ -21,13 +21,9 @@ class animation extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Colors.grey,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () => Navigator.of(context).maybePop(),
-          ),
+          backgroundColor: Colors.black,
           title: Center(child: const Text('Random animation')),
         ),
         body: FunvasViewer(
@@ -47,7 +43,7 @@ class ExampleFunvas extends Funvas {
     c.drawCircle(
       Offset(x.width / 2, x.height / 2),
       S(t).abs() * x.height / 4 + 42,
-      Paint()..color = R(C(t) * 255, 42, 60 + T(t)),
+      Paint()..color = R(C(t) * 100, 10, 60 + T(t)),
     );
   }
 }
@@ -66,7 +62,7 @@ class WaveFunvas extends Funvas {
           27,
           200,
         ),
-        Paint(),
+        Paint()..color = const Color(0xff333333),
       );
     }
   }
@@ -78,7 +74,7 @@ class Fifteen extends Funvas {
 
   @override
   void u(double t) {
-    c.drawPaint(Paint()..color = const Color(0xfff0d9b5));
+    c.drawPaint(Paint()..color = const Color(0xFF000000));
 
     _angle = pi / 2 * _cochleoidX(-pi + 2 * pi * (t % 5) / 5);
 
@@ -136,7 +132,7 @@ class OrbsFunvas extends Funvas {
 class Sixteen extends Funvas {
   @override
   void u(double t) {
-    c.drawPaint(Paint()..color = const Color(0xff333333));
+    c.drawPaint(Paint()..color = const Color(0xFF000000));
     final d = s2q(750).width;
 
     const cube = [

@@ -7,7 +7,6 @@ import 'main_menu_button.dart';
 import 'package:dark_fall2/dark_fall.dart';
 import 'package:dark_fall2/filled_button.dart';
 import 'package:dark_fall2/gradient_icon.dart';
-import 'package:dark_fall2/physics_visualize.dart';
 import 'animation.dart';
 import 'info.dart';
 

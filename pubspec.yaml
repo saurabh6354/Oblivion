@@ -37,19 +37,20 @@ dependencies:
 
 dev_dependencies:
   google_fonts: ^2.3.1
-  flutter_launcher_name: ^0.0.1
   flutter_lints: ^1.0.4
   funvas: ^0.1.6+6
+  flutter_launcher_icons_maker: ^0.10.2
 flutter_native_splash:
   color: "#000000"
   image: assets/splash_screen/app_logo.png
 
 flutter_launcher_name:
-  name: "Christian Kids Games"
+  name: "Dark_Fall"
 
 flutter_icons:
-  android: "launcher_icon"
+  android: true
   ios: true
+  image_path: "assets/icon/logo.png"
   flutter_test:
     sdk: flutter
 
@@ -57,7 +58,7 @@ flutter_icons:
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
+  # rules and activating additional ones. for image change run in terminal flutter pub run flutter_launcher_icons_maker:main
   flutter_lints: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
